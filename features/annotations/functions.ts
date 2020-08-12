@@ -49,5 +49,3 @@ const logWeather = ({
   console.log(date.toDateString());
   console.log(weather);
 };
-
-logWeather(currentWeather);
