@@ -85122,7 +85122,7 @@ function () {
   }
 
   User.prototype.markerContent = function () {
-    return "<h1>User Name: " + this.name + "</h1>";
+    return "\n    <div>\n    <h1>User Name: " + this.name + "</h1>\n    <h3>Lat: " + this.location.lat + "</h3>\n    <h3>Lng: " + this.location.lng + "</h3>\n    </div>\n    ";
   };
 
   return User;
@@ -85158,7 +85158,7 @@ function () {
   }
 
   Company.prototype.markerContent = function () {
-    return "\n    <div>\n    <h1>Company Name: " + this.companyName + "</h1>\n    <h3>Catch Phrase: " + this.catchPhrase + "</h3>\n    </div>\n    ";
+    return "\n    <div>\n    <h1>Company Name: " + this.companyName + "</h1>\n    <h3>Catch Phrase: " + this.catchPhrase + "</h3>\n    <h3>Lat: " + this.location.lat + "</h3>\n    <h3>Lng: " + this.location.lng + "</h3>\n    </div>\n    ";
   };
 
   return Company;
