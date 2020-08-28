@@ -1,20 +1,12 @@
 import { MatchReader } from './MatchReader';
-import { CsvFileReader } from './CsvFileReader';
-import { MatchResult } from './MatchResult';
+import { Summary } from './Summary';
 
-const csvReader = new CsvFileReader('football.csv');
-
-const matchReader = new MatchReader(csvReader);
+const matchReader = MatchReader.fromCSV('football.csv');
 matchReader.load();
 
-let manUnitedWins = 0;
+const manUnitedSummary = Summary.winsWithHtml('Man United');
 
-for (let match of matchReader.matches) {
-  if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
-    manUnitedWins++;
-  } else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
-    manUnitedWins++;
-  }
-}
+const arsenalSummary = Summary.winsToConsole('Arsenal');
 
-console.log(`Manchester United won ${manUnitedWins} games.`);
+manUnitedSummary.buildAndPrintReport(matchReader.matches);
+arsenalSummary.buildAndPrintReport(matchReader.matches);
